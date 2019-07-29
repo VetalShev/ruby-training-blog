@@ -1,0 +1,11 @@
+<h1>Hello, Rails!</h1>
+<%= link_to 'Articles', controller: 'articles' %> |
+<% if user_signed_in? %>
+  <%= link_to 'New article', new_article_path %> |
+<% end %>
+<% if user_signed_in? %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %> 
+<% else %>
+  <%= link_to 'Sign in', new_user_session_path %> |
+<% end %>
+<%= link_to 'Sign up', new_user_session_path %>
