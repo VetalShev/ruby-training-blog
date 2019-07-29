@@ -37,7 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'carrierwave', '~> 1.0'
-gem 'mini_magick', '~> 4.3'
+gem "mini_magick", ">= 4.9.4"
+
 gem 'pry-byebug'
 gem 'devise'
 
