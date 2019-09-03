@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :comments, dependent: :destroy
+  belongs_to :user
 
   validates :title, presence: true,
                     length: { minimum: 5 }
@@ -12,7 +13,7 @@ class Article < ApplicationRecord
   
   private
   def image_size_validation
-    errors[:image] << 'The image size should be less then 500Kb' if image.size > 0.5.megabytes
+    errors[:image] << 'The image size should be less then 1Mb' if image.size > 1.megabytes
   end
 
 end
