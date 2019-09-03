@@ -14,6 +14,12 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :relationships
+
+  get 'account', to: 'relationships#show'
+  # post 'account/add_friend', to: 'relationships#add_friend'
+
+
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

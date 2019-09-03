@@ -1,0 +1,50 @@
+<h1>
+  Hello, <%= current_user.email %>
+</h1>
+
+<% if @possible_friends.length > 0 %>
+  <h2>Are you familiar?</h2>
+  <ul>
+    <% @possible_friends.each do |possible_friend| %>
+      <li>
+        <p><%= possible_friend.email %></p>
+        <button type="button" 
+                class="add-friend-btn"
+                data-user-id="<%= possible_friend.id %>">
+          Add to friends
+        </button>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h2>My friends:</h2>
+<ul>
+  <% current_user.friends.each do |friend| %>
+    <li>
+      <p><%= friend.email %></p>
+      <button type="button" 
+              class="delete-friend-btn"
+              data-user-id="<%= friend.id %>">
+        Remove from friends
+      </button>
+    </li>
+  <% end %>
+  <% if current_user.friends.length == 0 %>
+    Currently you dont have friends
+  <% end %>
+</ul>
+
+<h2>My articles:</h2>
+
+<ol>
+  <% @articles.each do |article| %>
+    <li>
+      <%= image_tag(article.image.thumb.url, alt: 'Image') if article.image? %>
+      <%= article.title %>
+    </li>
+  <% end %>
+  <% if @articles.length == 0 %>
+    Currently you dont have any articles
+  <% end %>
+</ol>
